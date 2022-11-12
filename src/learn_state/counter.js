@@ -18,12 +18,19 @@ export default function Counter() {
     setShowImage(!showImage);
   };
 
+  const [inputValue, setInputValue] = useState('Text yang diubah');
+  const inputHandler = (event) => {
+      setInputValue(event.target.value)
+  }
+
   const [inputContext, setInputContext] = useState("");
 
   return (
     <div className="Main">
       <p className="Text">Counter with useState</p>
       <p>KELOMPOK 29</p>
+      <input type='text' onChange={inputHandler}/>
+      <p className="Text">{ inputValue }</p>
 
       <MerkContext.Provider value={{ setInputContext }}>
         <p>{inputContext}</p>
